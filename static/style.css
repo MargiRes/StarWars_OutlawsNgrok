@@ -1,0 +1,146 @@
+* {
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+}
+body {
+    font-family: Arial, sans-serif;
+    color: #f1f1f1;
+    overflow-y: auto;
+    height: 100%;
+    width: 100%;
+    background: url('space_bg.jpg') no-repeat center center fixed;
+    background-size: cover;
+}
+.container {
+    position: relative;
+    width: 100%;
+    min-height: 100%;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    text-align: center;
+    padding: 20px;
+    box-shadow: inset 0 0 50px rgba(0, 0, 0, 0.5);
+}
+.starwars-header {
+    width: 100%;
+    background-color: rgba(0, 0, 0, 0.6);
+    padding: 15px 20px;
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+    border-bottom: 1px solid rgba(255, 111, 0, 0.2);
+}
+.star-wars-logo {
+    font-size: 1.5em;
+    color: #fff;
+    font-weight: bold;
+    text-transform: uppercase;
+    font-family: 'Retro Sci-Fi Aesthetic', sans-serif;
+}
+.header-logo-image {
+    max-height: 120px;
+    max-width: 400px;
+    vertical-align: right;
+}
+.starwars-nav {
+    display: flex;
+    align-items: center;
+}
+.details-container {
+    background-color: rgba(128, 128, 128, 0.3);
+    padding: 10px;
+    border-radius: 5px;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    border: 1px solid rgba(255, 255, 255, 0.1);
+    box-shadow: 0 2px 5px rgba(0, 0, 0, 0.2); 
+}
+.nav-link {
+    color: #ddd;
+    text-decoration: none;
+    font-size: 1.1em;
+    transition: color 0.2s ease;
+    display: inline-block;
+    cursor: pointer;
+    margin-left: 20px;
+    font-family: 'Roboto Condensed', sans-serif;
+}
+.nav-link:hover {
+    color: #fff;
+}
+.nav-link strong {
+    color: #ff6f00;
+    font-family: 'Orbitron', sans-serif;
+    margin-right: 5px;
+}
+.content-wrapper {
+    display: flex;
+    width: 80%;
+    max-width: 1200px;
+    margin: 20px auto;
+    justify-content: space-between;
+    align-items: flex-start;
+}
+.image-container {
+    width: 60%;
+    position: relative;
+}
+.image-wrapper {
+    width: 100%;
+}
+.game-image {
+    width: 100%;
+    border-radius: 10px;
+    box-shadow: 0 0 25px rgba(255, 111, 0, 0.7);
+}
+.detail-info-below {
+    margin-top: 20px;
+    background-color: rgba(128, 128, 128, 0.3);
+    padding: 15px;
+    border-radius: 10px;
+    color: #ddd;
+    text-align: left;
+    font-family: 'Roboto Condensed', sans-serif;
+    border: 1px solid rgba(255, 255, 255, 0.1);
+    box-shadow: 0 2px 5px rgba(0, 0, 0, 0.2);
+}
+
+.detail-info-below p {
+    margin-bottom: 8px;
+    font-size: 1.1em;
+    overflow: hidden;
+}
+.detail-info-below strong {
+    color: #ff6f00;
+    font-family: 'Orbitron', sans-serif;
+}
+.video-side {
+    width: 35%;
+    text-align: left;
+}
+.video-side h2 {
+    font-size: 1.8em;
+    color: #ff6f00;
+    margin-bottom: 15px;
+    font-family: 'Orbitron', sans-serif;
+}
+.video-side video {
+    margin-bottom: 20px;
+    border-radius: 10px;
+    box-shadow: 0 0 15px rgba(255, 111, 0, 0.5);
+    width: 100%;
+    height: auto;
+    max-width: 400px;
+    max-height: 300px;
+}
+@keyframes pulsate {
+    0% {
+        text-shadow: 0 0 10px #ff6f00, 0 0 20px #ff6f00, 0 0 30px #ff6f00;
+    }
+    100% {
+        text-shadow: 0 0 20px #ff6f00, 0 0 30px #ff6f00, 0 0 40px #ff6f00;
+    }
+}

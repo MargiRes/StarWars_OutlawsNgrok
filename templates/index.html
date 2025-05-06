@@ -1,0 +1,88 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Star Wars Outlaws Information</title>
+    <link rel="stylesheet" href="{{ url_for('static', filename='style.css') }}">
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Bebas+Neue&family=Orbitron:wght@400;700&family=Roboto+Condensed:wght@400;700&display=swap" rel="stylesheet">
+</head>
+<body>
+    <div class="container">
+        <div class="star-wars-logo">
+            <img src="{{ url_for('static', filename='logo.jpg') }}" alt="Star Wars Outlaws Logo" class="header-logo-image">
+        </div>
+        <div class="details-container">
+            <a href="#" class="nav-link" data-detail="release-date"><strong>Release Date</strong></a>
+            <a href="#" class="nav-link" data-detail="developer"><strong>Developer</strong></a>
+            <a href="#" class="nav-link" data-detail="publisher"><strong>Publisher</strong></a>
+            <a href="#" class="nav-link" data-detail="platforms"><strong>Platforms</strong></a>
+            <a href="#" class="nav-link" data-detail="key-features"><strong>Key Features</strong></a>
+        </div>
+        <div class="content-wrapper">
+            <div class="image-container">
+                <div class="image-wrapper">
+                    <img src="{{ url_for('static', filename='star_wars_outlaws.jpeg') }}" alt="Star Wars Outlaws" class="game-image">
+                </div>
+            </div>
+            <div class="video-side">
+                <h2>Gameplay Trailer</h2>
+                <video width="320" height="240" controls>
+                    <source src="{{ url_for('static', filename='trailer.mp4') }}" type="video/mp4">
+                    Your browser does not support the video tag.
+                </video>
+                <div class="detail-info-below">
+                    <p id="release-date"><strong>Release Date:</strong> {{ game_data.release_date }}</p>
+                    <p id="developer"><strong>Developer:</strong> {{ game_data.developer }}</p>
+                    <p id="publisher"><strong>Publisher:</strong> {{ game_data.publisher }}</p>
+                    <p id="platforms"><strong>Platforms:</strong> {{ game_data.platforms }}</p>
+                    <p id="key-features"><strong>Key Features:</strong> {{ game_data.key_features }}</p>
+                </div>
+            </div>
+        </div>
+    </div>
+    <script>
+        document.addEventListener('DOMContentLoaded', function() {
+            const navLinks = document.querySelectorAll('.nav-link');
+            const detailInfoBelow = document.querySelector('.detail-info-below');
+            const details = detailInfoBelow.children;
+
+            for (let i = 0; i < details.length; i++) {
+                details[i].style.display = 'none';
+            }
+
+            navLinks.forEach(link => {
+                link.addEventListener('click', function(event) {
+                    event.preventDefault();
+                    const detailId = this.dataset.detail;
+                    const detailToShow = document.getElementById(detailId);
+
+                    if (detailToShow) {
+                        if (detailToShow.style.display === 'block') {
+                            detailToShow.style.display = 'none';
+                        } else {
+                            for (let i = 0; i < details.length; i++) {
+                                details[i].style.display = 'none';
+                            }
+
+                            detailToShow.style.maxHeight = '0';
+                            detailToShow.style.display = 'block';
+                            requestAnimationFrame(() => {
+                                detailToShow.style.transition = 'max-height 0.5s ease-out';
+                                detailToShow.style.maxHeight = detailToShow.scrollHeight + 'px';
+                            });
+
+                            detailToShow.addEventListener('transitionend', function() {
+                                detailToShow.style.transition = '';
+                                detailToShow.style.maxHeight = null;
+                            }, { once: true });
+                        }
+                    }
+                });
+            });
+        });
+    </script>
+</body>
+</html>
